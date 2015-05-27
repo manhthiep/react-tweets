@@ -5,6 +5,7 @@ Code repository for the tutorial by @kenwheeler: [Build A Real-Time Twitter Stre
 ## Requirements
 
 - node and npm
+- MongoDB
 
 ## How to Use
 
