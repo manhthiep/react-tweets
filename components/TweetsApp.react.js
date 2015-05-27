@@ -4,6 +4,7 @@ var React = require('react');
 var Tweets = require('./Tweets.react.js');
 var Loader = require('./Loader.react.js');
 var NotificationBar = require('./NotificationBar.react.js');
+var TopBar = require('./TopBar.react.js');
 
 // Export the TweetsApp component
 module.exports = TweetsApp = React.createClass({
@@ -57,6 +58,12 @@ module.exports = TweetsApp = React.createClass({
 
   // Method to show the unread tweets
   showNewTweets: function(){
+
+    // clear previous count (if any)
+    var document_title = document.title.replace(/\(.*?\)/g, '');
+    document_title = document_title.replace('(', '');
+    document_title = document_title.replace(') ', '');
+    document.title = document_title;
 
     // Get current application state
     var updated = this.state.tweets;
@@ -173,6 +180,7 @@ module.exports = TweetsApp = React.createClass({
 
     return (
       <div className="tweets-app">
+        <TopBar />
         <Tweets tweets={this.state.tweets} />
         <Loader paging={this.state.paging}/>
         <NotificationBar count={this.state.count} onShowNewTweets={this.showNewTweets}/>
