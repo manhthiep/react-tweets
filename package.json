@@ -1,39 +1,25 @@
 {
-  "name": "react-tweets",
+  "name": "noreact-tweets",
   "version": "0.0.0",
-  "description": "React Example",
-  "main": "app.js",
+  "description": "Show the tweets (without ReactJS, based on React Tweets)",
+  "main": "server.js",
   "scripts": {
-    "watch": "watchify app.js -o public/js/bundle.js -v",
-    "browserify": "browserify app.js > public/js/bundle.js",
-    "browseruglify": "browserify app.js | uglifyjs > public/js/bundle.js",
-    "build": "npm run browserify ",
     "start": "npm install"
   },
-  "author": "Ken Wheeler",
+  "author": "Ken Wheeler (React Tweets)",
   "license": "MIT",
   "dependencies": {
     "express": "~4.9.7",
-    "express-handlebars": "~1.1.0",
     "ejs": "~2.3.1",
     "mongoose": "^3.8.23",
-    "node-jsx": "~0.11.0",
-    "twitter": "^1.2.0",
-    "react": "~0.11.2",
     "socket.io": "^1.1.0",
     "ntwitter": "~0.5.0",
+    "autolinker": "~0.17.1",
     "moment": "~2.10.3"
   },
   "devDependencies": {
-    "browserify": "~6.0.3",
     "nodemon": "^1.2.1",
-    "reactify": "~0.14.0",
     "uglify-js": "~2.4.15",
     "watchify": "^3.1.1"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
   }
 }

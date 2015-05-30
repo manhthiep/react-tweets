@@ -1,6 +1,5 @@
 // Require our dependencies
 var express = require('express'),
-  exphbs = require('express-handlebars'),
   http = require('http'),
   mongoose = require('mongoose'),
   twitter = require('ntwitter'),
@@ -12,9 +11,8 @@ var express = require('express'),
 var app = express();
 var port = process.env.PORT || 8080;
 
-// Set handlebars as the templating engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+// Set up ejs for templating
+app.set('view engine', 'ejs');
 
 // Disable etag headers on responses
 app.disable('etag');
@@ -24,6 +22,7 @@ mongoose.connect(config.mongodb.uri);
 
 // Set /public as our static content dir
 app.use("/", express.static(__dirname + "/public/"));
+
 // Index Route
 app.get('/', routes.index);
 // Page Route

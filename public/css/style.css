@@ -221,7 +221,7 @@ footer .update-message
     text-decoration: underline;
 }
 
-.tweet blockquote .screen-name
+.tweet blockquote cite .screen-name
 {
     font-size: 13px;
     font-weight: normal;

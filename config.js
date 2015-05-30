@@ -6,6 +6,6 @@ module.exports = {
     access_token_secret: 'ACCESS_TOKEN_KEY_SECRET'
   },
   mongodb: {
-    uri: 'mongodb://localhost/react-tweets'
+    uri: 'mongodb://localhost/noreact-tweets'
   }
 }
