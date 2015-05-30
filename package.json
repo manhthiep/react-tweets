@@ -1,7 +1,7 @@
 {
-  "name": "react-isomorph",
+  "name": "react-tweets",
   "version": "0.0.0",
-  "description": "Isomorphic React Example",
+  "description": "React Example",
   "main": "app.js",
   "scripts": {
     "watch": "watchify app.js -o public/js/bundle.js -v",
@@ -15,12 +15,14 @@
   "dependencies": {
     "express": "~4.9.7",
     "express-handlebars": "~1.1.0",
+    "ejs": "~2.3.1",
     "mongoose": "^3.8.23",
     "node-jsx": "~0.11.0",
     "twitter": "^1.2.0",
     "react": "~0.11.2",
     "socket.io": "^1.1.0",
-    "ntwitter": "~0.5.0"
+    "ntwitter": "~0.5.0",
+    "moment": "~2.10.3"
   },
   "devDependencies": {
     "browserify": "~6.0.3",

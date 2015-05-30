@@ -20,19 +20,14 @@ app.set('view engine', 'handlebars');
 app.disable('etag');
 
 // Connect to our mongo database
-mongoose.connect('mongodb://localhost/react-tweets');
-
-// Create a new ntwitter instance
-var twit = new twitter(config.twitter);
-
-// Index Route
-app.get('/', routes.index);
-
-// Page Route
-app.get('/page/:page/:skip', routes.page);
+mongoose.connect(config.mongodb.uri);
 
 // Set /public as our static content dir
 app.use("/", express.static(__dirname + "/public/"));
+// Index Route
+app.get('/', routes.index);
+// Page Route
+app.get('/page/:page/:skip', routes.page);
 
 // Fire this bitch up (start our server)
 var server = http.createServer(app).listen(port, function() {
@@ -41,6 +36,9 @@ var server = http.createServer(app).listen(port, function() {
 
 // Initialize socket.io
 var io = require('socket.io').listen(server);
+
+// Create a new ntwitter instance
+var twit = new twitter(config.twitter);
 
 // Set a stream listener for tweets matching tracking keywords
 twit.stream('statuses/filter',{ track: 'javascript'}, function(stream){

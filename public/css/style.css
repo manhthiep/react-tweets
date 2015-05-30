@@ -11,7 +11,7 @@ body
     padding: 0 0 40px 0;
 
     color: #333;/*white;*/
-    background: white;/*#2c3e50;*/
+    background: #21333E;/*#2c3e50;*/
 }
 
 a 
@@ -136,7 +136,10 @@ footer .update-message
 {
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 1px 5px;
+    border-radius: 3px;
+
+    background-color: #fff;
 }
 
 .tweet
@@ -160,7 +163,8 @@ footer .update-message
 .tweet.active
 {
     max-height: 100%;
-    margin: 10px 0;
+    /*margin: 10px 0;*/
+    margin-bottom: 5px;
 
     -webkit-transition: 1s all ease;
        -moz-transition: 1s all ease;
@@ -222,7 +226,23 @@ footer .update-message
     font-size: 13px;
     font-weight: normal;
 
-    color: #ccc;
+    color: #909090;
+}
+
+.tweet blockquote cite .separator
+{
+    font-size: 13px;
+    font-weight: normal;
+
+    color: #909090;
+}
+
+.tweet blockquote cite .time-from-now a
+{
+    font-size: 13px;
+    font-weight: normal;
+
+    color: #909090;
 }
 
 .tweet blockquote .content
@@ -230,7 +250,7 @@ footer .update-message
     display: block;
     clear: left;
 
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .tweet blockquote .content a 

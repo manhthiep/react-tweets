@@ -7,6 +7,10 @@ Code repository for the tutorial by @kenwheeler: [Build A Real-Time Twitter Stre
 - node and npm
 - MongoDB
 
+## Using
+
+- ReactJS, jQuery, Moment.js, Autolinker.js
+
 ## How to Use
 
 1. Clone the repo: `git clone git@github.com:scotch-io/react-tweets`

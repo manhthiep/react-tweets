@@ -5,6 +5,7 @@ var Tweets = require('./Tweets.react.js');
 var Loader = require('./Loader.react.js');
 var NotificationBar = require('./NotificationBar.react.js');
 var TopBar = require('./TopBar.react.js');
+var moment = require('moment');
 
 // Export the TweetsApp component
 module.exports = TweetsApp = React.createClass({
@@ -173,6 +174,34 @@ module.exports = TweetsApp = React.createClass({
     // Attach scroll event to the window for infinity paging
     window.addEventListener('scroll', this.checkWindowScroll);
 
+    setInterval(function() {
+      self.updateDateTime();
+    }, 30000); // 30 seconds
+
+  },
+  
+  updateDateTime: function () {
+    var now_moment = moment();
+    var yesterday_moment = moment().subtract(1, 'day');
+    $(".date-time").each(function(){
+      var utc_time = $(this).attr("data-date-time");
+      if (utc_time && utc_time != "") {
+        var local_time = moment.utc(utc_time).toDate();
+        var local_moment = moment(local_time.toISOString());
+        var days_diff = now_moment.diff(local_moment, 'days');
+        if (days_diff >= 2) { // over 2 days
+          $(this).html(local_moment.format('MMMM DD, hh:mm a'));
+        } else if (days_diff == 1) {
+          if (yesterday_moment.date() == local_moment.date()) {
+            $(this).html('Yesterday, ' + local_moment.format('hh:mm a'));
+          } else {
+            $(this).html(local_moment.format('MMMM DD, hh:mm a'));
+          }
+        } else {
+          $(this).html(local_moment.fromNow());
+        }
+      }
+    });
   },
 
   // Render the component
